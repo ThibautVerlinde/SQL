@@ -1,0 +1,29 @@
+--Create a grocery store database
+
+CREATE TABLE camping_gear (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, type TEXT, price INTEGER);
+
+INSERT INTO camping_gear VALUES (1, "tent", 60, 8, "outdoor", 300);
+INSERT INTO camping_gear VALUES (2, "rain coat", 100, 3, "outdoor", 25);
+INSERT INTO camping_gear VALUES (3, "table", 69, 13, "outdoor", 78);
+INSERT INTO camping_gear VALUES (4, "backpack", 84, 25, "both", 38);
+INSERT INTO camping_gear VALUES (5, "thermal underwear", 112, 3, "both", 12);
+INSERT INTO camping_gear VALUES (6, "goggles", 50, 2, "outdoor", 7);
+INSERT INTO camping_gear VALUES (7, "gloves", 24, 25, "outdoor", 5);
+INSERT INTO camping_gear VALUES (8, "lantern", 80, 19, "indoor", 19);
+INSERT INTO camping_gear VALUES (9, "flashlight", 65, 19, "outdoor", 20);
+INSERT INTO camping_gear VALUES (10, "sleeping bag", 120, 8, "indoor", 120);
+INSERT INTO camping_gear VALUES (11, "trail mix", 50, 1, "both", 3);
+INSERT INTO camping_gear VALUES (12, "canteen", 76, 25, "both", 24);
+INSERT INTO camping_gear VALUES (13, "blanket", 82, 22, "indoor", 75);
+INSERT INTO camping_gear VALUES (14, "bug spray", 59, 2, "outdoor", 8);
+INSERT INTO camping_gear VALUES (15, "umbrella", 137, 10, "outdoor", 13);
+INSERT INTO camping_gear VALUES (16, "shovel", 48, 7, "outdoor", 11);
+
+--display the database ordered by price.
+SELECT name, price FROM camping_gear ORDER BY price;
+
+--display the items that are located from isle 16 onwards.
+SELECT * FROM camping_gear WHERE aisle > 15 ORDER BY aisle;
+
+--calculate the total sum of all item prices.
+SELECT SUM(price) FROM camping_gear;
