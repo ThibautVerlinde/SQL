@@ -1,0 +1,27 @@
+--Create a database with information from a game app.
+
+CREATE TABLE offroad_runners (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    track_name TEXT,
+    best_time_in_seconds INTEGER,
+    favorite_vehicle TEXT);
+    
+INSERT INTO offroad_runners (track_name, best_time_in_seconds, favorite_vehicle) VALUES ("Wah Oasis", 62, "Plym Camper");
+INSERT INTO offroad_runners (track_name, best_time_in_seconds, favorite_vehicle) VALUES ("Pelly Flats", 69, "Vela Aurora");
+INSERT INTO offroad_runners (track_name, best_time_in_seconds, favorite_vehicle) VALUES ("Riverbed Forest", 55, "Cross Kart");
+
+--Visualize table.
+SELECT * FROM offroad_runners;
+
+--Use of UPDATE to emulate what happens when you edit data in the app.
+UPDATE offroad_runners SET best_time_in_seconds = 65 WHERE id = 2;
+
+-Visualize updated table.
+SELECT * FROM offroad_runners;
+
+--Use of DELETE to emulate what happens when you delete data in the app.
+DELETE FROM offroad_runners WHERE id = 3;
+
+--Visualize updated table.
+SELECT * FROM offroad_runners;
+
