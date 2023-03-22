@@ -1,0 +1,27 @@
+--Create 2 separate databases: one for fictional movie stars and one for fictional directors.
+
+CREATE TABLE moviestars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, most_famous_movie TEXT, married_to TEXT);
+
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES  ("Johnny Cage", "Mortal Kombat", "Sonya Blade");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Sonya Blade", "Police Kombat", "Johnny Cage");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Liu Kang", "Enter the dragon", "Kitana");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Kitana", "Fan favorite", "Liu Kang");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ( "Baracca", "Blades of Gory", "Mileena");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Mileena", "Daughters with teeth", "Baracca");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Raiden", "Thunderstruck", "Sindel");
+INSERT INTO moviestars (name, most_famous_movie, married_to) VALUES ("Sindel", "Bad Hair Day", "Raiden");
+
+CREATE TABLE directors (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, star_in_movie TEXT);
+INSERT INTO directors (name, star_in_movie) VALUES ("Sub-Zero", 1);
+INSERT INTO directors (name, star_in_movie) VALUES ("Bo-Rai-Cho", 2);
+INSERT INTO directors (name, star_in_movie) VALUES ("Kung Lao", 3);
+INSERT INTO directors (name, star_in_movie) VALUES ("Jade", 4);
+INSERT INTO directors (name, star_in_movie) VALUES ("D'Vorah", 5);
+INSERT INTO directors (name, star_in_movie) VALUES ("Shao Kahn", 6);
+INSERT INTO directors (name, star_in_movie) VALUES ("Kotal Kahn", 7);
+INSERT INTO directors (name, star_in_movie) VALUES ("Scorpion", 8);
+
+--Use of LEFT OUTER JOIN to portray in one table which moviestar worked with what director in their most famous movie.
+SELECT moviestars.name AS "actor", moviestars.most_famous_movie AS "movie", directors.name AS "director" from moviestars
+    LEFT OUTER JOIN directors
+    ON moviestars.id = directors.star_in_movie;
