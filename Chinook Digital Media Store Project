@@ -1,6 +1,6 @@
 ## Below you will see the analysis of a database with 11 tables about a digital media store. I will query for some interesting data.
 
---Q1. Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
+--Q1. Show Customers (their full names, customer ID, and country) who are not in the US.
 SELECT CustomerID, FirstName, LastName, Country FROM chinook.customers
 WHERE country <> 'USA';
 
