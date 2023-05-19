@@ -94,3 +94,18 @@ WHERE emp.Title = 'Sales Support Agent'
 AND Inv.InvoiceDate LIKE '2009%' 
 GROUP BY emp.FirstName
 ORDER BY (round(sum(Inv.Total), 2))  DESC LIMIT 1;
+
+--Q15. What are the 5 most purchased albums in 2009?
+SELECT a.Name, ab.Title, SUM(ii.Quantity) as 'Units Sold in 2009'
+FROM chinook.artists a
+JOIN chinook.albums ab
+ON ab.ArtistId = a.ArtistId
+JOIN chinook.tracks t
+ON ab.Albumid = t.AlbumId
+JOIN chinook.invoice_items ii
+ON t.TrackId = ii.TrackId
+JOIN chinook.invoices inv
+ON ii.InvoiceId = inv.InvoiceId
+GROUP BY ab.Title
+ORDER BY SUM(ii.Quantity) DESC
+Limit 5;
